@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>TODO</title>
+</head>
+<body>
+  <!-- TODOリスト -->
+  <table>
+    <caption>
+      TODOリスト
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">やること</th>
+        <th scope="col">締め切り</th>
+        <th scope="col">削除</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>ごみすて</td>
+        <td>2024/10/21</td>
+        <td>
+          <form>
+            <button type="submit">削除</button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>買い出し</td>
+        <td>2024/10/20</td>
+        <td>
+          <form>
+            <button type="submit">削除</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th scope="row" colspan="2">タスク数</th>
+        <td>2</td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+  <form>
+    <label for="taskName">やること</label>
+    <input type="text" required />
+    <label for="dueDate">締め切り</label>
+    <input type="date" required/>
+    <button type="submit">追加</button>
+  </form>
+</body>
+</html>
