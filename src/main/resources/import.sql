@@ -1,1 +1,1 @@
-insert into task (id, title, due_date) values (1, 'test', '2024-10-10');
+insert into task (id, title, due_date) values (999, 'test', '2024-10-10');
