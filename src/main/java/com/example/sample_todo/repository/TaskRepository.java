@@ -6,8 +6,4 @@ import org.springframework.stereotype.Repository;
 import com.example.sample_todo.entity.Task;
 
 @Repository
-public interface TaskRepository extends CrudRepository<Task, Long> {
-
-    Task findById(long id);
-    
-}
+public interface TaskRepository extends CrudRepository<Task, Long> {}
