@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.sample_todo.entity.Task;
 import com.example.sample_todo.repository.TaskRepository;
@@ -34,6 +35,14 @@ public class TaskController {
     public String register(@ModelAttribute("inputTask") Task inputTask, Model model) {
         taskService.addTask(inputTask);
 
+        model.addAttribute("tasks", taskService.getTasks());
+        model.addAttribute("inputTask", new Task());
+        return "index";
+    }
+
+    @PostMapping("/delete")
+    public String delete(@RequestParam String id, Model model) {
+        taskService.deleteTask(Long.parseLong(id));
         model.addAttribute("tasks", taskService.getTasks());
         model.addAttribute("inputTask", new Task());
         return "index";
