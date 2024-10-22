@@ -1,5 +1,7 @@
 package com.example.sample_todo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,10 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
+    public List<Task> getTasks() {
+        return (List<Task>) taskRepository.findAll();
+    }
+    
     public void addTask(Task task) {
         taskRepository.save(task);
     }

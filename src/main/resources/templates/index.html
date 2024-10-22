@@ -19,22 +19,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>ごみすて</td>
-        <td>2024/10/21</td>
+      <tr th:each="task, status : ${tasks}">
+        <td th:text="${status.count}"></td>
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.dueDate}"></td>
         <td>
-          <form>
-            <button type="submit">削除</button>
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>買い出し</td>
-        <td>2024/10/20</td>
-        <td>
-          <form>
+          <form action="#" th:action="@{/todo-web-thymeleaf/delete}" method="post">
+            <input type="hidden" name="id" th:value="${task.id}" />
             <button type="submit">削除</button>
           </form>
         </td>
@@ -43,7 +34,7 @@
     <tfoot>
       <tr>
         <th scope="row" colspan="2">タスク数</th>
-        <td>2</td>
+        <td th:text="${#arrays.length(tasks)}"></td>
         <td></td>
       </tr>
     </tfoot>

@@ -25,15 +25,17 @@ public class TaskController {
 
     @GetMapping("/")
     public String index(Model model) {
-        Task task = taskRepository.findById(999);
-        System.out.println(task.getTitle() + " : " + task.getDueDate());
+        model.addAttribute("tasks", taskService.getTasks());
         model.addAttribute("inputTask", new Task());
         return "index";
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute("inputTask") Task inputTask) {
+    public String register(@ModelAttribute("inputTask") Task inputTask, Model model) {
         taskService.addTask(inputTask);
+
+        model.addAttribute("tasks", taskService.getTasks());
+        model.addAttribute("inputTask", new Task());
         return "index";
     }
 }
