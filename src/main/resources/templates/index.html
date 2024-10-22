@@ -24,7 +24,7 @@
         <td th:text="${task.title}"></td>
         <td th:text="${task.dueDate}"></td>
         <td>
-          <form action="#" th:action="@{/todo-web-thymeleaf/delete}" method="post">
+          <form action="#" th:action="@{/delete}" method="post">
             <input type="hidden" name="id" th:value="${task.id}" />
             <button type="submit">削除</button>
           </form>
