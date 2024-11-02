@@ -10,6 +10,7 @@
     <caption>
       TODOリスト
     </caption>
+    <!-- タスク一覧(テーブル形式) -->
     <thead>
       <tr>
         <th scope="col">No.</th>
@@ -19,13 +20,20 @@
       </tr>
     </thead>
     <tbody>
+      <!-- tasksという属性をバックエンドから受け取って、th:eachで1つずつ処理する -->
+      <!-- TaskControllerの `model.addAttribute("tasks", taskService.getTasks());` と対応している -->
+      <!-- status.countで行番号を取得 -->
       <tr th:each="task, status : ${tasks}">
         <td th:text="${status.count}"></td>
         <td th:text="${task.title}"></td>
         <td th:text="${task.dueDate}"></td>
         <td>
+          <!-- 削除ボタン用のフォーム -->
+          <!-- th:actionがTaskControllerの `@PostMapping("/delete")` と対応する -->
           <form action="#" th:action="@{/delete}" method="post">
+            <!-- 削除対象のタスクIDを送信するための隠しフィールド -->
             <input type="hidden" name="id" th:value="${task.id}" />
+            <!-- 削除ボタン -->
             <button type="submit">削除</button>
           </form>
         </td>
@@ -33,12 +41,17 @@
     </tbody>
     <tfoot>
       <tr>
+        <!-- タスク数を表示 -->
         <th scope="row" colspan="2">タスク数</th>
+        <!-- tasks(リスト)の要素数を取得している -->
         <td th:text="${#arrays.length(tasks)}"></td>
         <td></td>
       </tr>
     </tfoot>
   </table>
+  <!-- タスク追加フォーム -->
+  <!-- th:actionがTaskControllerの `@PostMapping("/register")` と対応する -->
+  <!-- inputTaskという属性をバックエンドから受け取って、th:objectでバインドする -->
   <form action="#" th:action="@{/register}" th:object="${inputTask}" method="post">
     <label for="title">やること</label>
     <input type="text" th:field="*{title}" required />
