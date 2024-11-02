@@ -11,12 +11,15 @@ import com.example.sample_todo.repository.TaskRepository;
 @Service
 public class TaskService {
 
+    // TaskRepositoryをインスタンス化
     private final TaskRepository taskRepository;
 
     @Autowired
     public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
+
+    // TaskRepositoryの(というよりCrudRepositoryの)メソッドを使ってDB操作を行う
 
     public List<Task> getTasks() {
         return (List<Task>) taskRepository.findAll();
