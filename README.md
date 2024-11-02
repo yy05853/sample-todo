@@ -7,6 +7,11 @@
 - 頒布ページ
   - https://techbookfest.org/product/fEkBY40CCT4tv8Rb6whRuz
 
+### 注意事項
+
+アプリを停止すると、登録したTODOデータは消去されます。
+あくまで動作確認のためのサンプルアプリとしてお使いください。
+
 ## 起動方法
 
 - このリポジトリから自分のリポジトリにForkする
@@ -27,3 +32,9 @@
 - 初期画面から「やること」欄に文字列を、「締め切り」欄に日付を入力して「追加」ボタンを押下すると、TODOを登録でき、一覧に表示されます
   - ![登録後](images/after-register.png)
 - 登録後に一覧の「削除」ボタンを押下すると、当該TODOを削除できます
+
+## 参考
+
+- コードコメントも参考になると思います
+- issueコメントも見てみてください
+  - https://github.com/yy05853/sample-todo/issues?q=is%3Aissue+is%3Aclosed
