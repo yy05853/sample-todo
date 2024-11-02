@@ -35,5 +35,6 @@
 
 ## 参考
 
-- issueコメントも参考にしてみてください
+- コードコメントも参考になると思います
+- issueコメントも見てみてください
   - https://github.com/yy05853/sample-todo/issues?q=is%3Aissue+is%3Aclosed
